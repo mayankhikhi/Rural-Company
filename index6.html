@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Company: The Anti-Service Platform</title>
+    <style>
+        /*
+         * Chapter 4: The Palette of Pastoral Paradox & Typography of Confusion
+         * This section has been updated to use a new, earthy color scheme.
+         * The theme is now rural, but the design remains intentionally chaotic.
+         */
+         @font-face {
+    font-family: 'Franklin Gothic Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Rural Company'), url('Franklin Gothic Condensed.woff') format('woff');
+    }
+        :root {
+            /* Palette of Pain: New Black Theme */
+            --bg-color-main: #1a1a1a; /* Deep off-black */
+            --text-color-main: #FFFFFF; /* White text for contrast */
+            --btn-color-1: #ffffff; /* Deep purple for clashing buttons */
+            --btn-color-2: #6e92be; /* Vibrant red-pink for buttons */
+            --accent-neon-1: #ffffff; /* Neon pink for highlights */
+            --accent-neon-2: #ff00ff; /* Neon green for highlights */
+        }
+
+        body {
+            font-family: 'Times New Roman', serif; /* A classic font, but hard to read with these colors */
+            background-color: var(--bg-color-main);
+            color: var(--text-color-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            font-size: 18px; /* Increased base font size for readability */
+            overflow-x: hidden; /* Prevent horizontal scrolling from chaotic elements */
+        }
+
+        .container {
+            max-width: 1400px; /* Increased width for side-by-side layout */
+            margin: auto;
+            padding: 20px;
+            display: flex; /* LAYOUT CHANGE: Enable flexbox */
+            gap: 40px; /* LAYOUT CHANGE: Add space between columns */
+            align-items: flex-start; /* LAYOUT CHANGE: Align columns to the top */
+        }
+        
+        /* LAYOUT CHANGE: Define column widths */
+        .services {
+            flex: 3; /* Approx 60% width */
+        }
+        
+        .testimonials {
+            flex: 2; /* Approx 40% width */
+            margin-top: 0; /* LAYOUT CHANGE: Remove top margin to align columns */
+        }
+
+        /* Anti-UX: Chaotic, overlapping, and jarring elements */
+        h1, h2, h3 {
+            font-family: 'Franklin Gothic', serif; /* A jarring, monospaced font */
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 2.5em;
+            text-align: center;
+            margin: 40px 0;
+            line-height: 1;
+            /* Text flicker animation for headers to look broken */
+            animation: text-flicker 2s infinite alternate;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            background-color: rgba(141, 110, 99, 0.05); /* Earth Brown with low opacity */
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--accent-color-1);
+        }
+
+        .header h1 {
+            font-size: 4em;
+            color: var(--accent-color-2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: var(--btn-color-2);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Chaotic visual elements */
+        .chaotic-element {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1); /* Leaf Green with low opacity */
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: chaos 10s infinite alternate;
+        }
+
+        @keyframes chaos {
+            0% { top: -20px; left: 0%; transform: rotate(0deg); }
+            50% { top: 80%; left: 50%; transform: rotate(180deg); }
+            100% { top: -20px; left: 100%; transform: rotate(360deg); }
+        }
+
+        /* Text flicker effect */
+        @keyframes text-flicker {
+            0%, 19.9% { text-shadow: none; }
+            20% { text-shadow: 0 0 5px var(--accent-color-1); }
+            20.1% { text-shadow: none; }
+            22% { text-shadow: 0 0 5px var(--accent-color-1); }
+            22.1% { text-shadow: none; }
+            30% { text-shadow: none; }
+            30.1% { text-shadow: 0 0 5px var(--accent-color-1); }
+            30.2% { text-shadow: none; }
+            35% { text-shadow: 0 0 5px var(--accent-color-1); }
+            35.1% { text-shadow: none; }
+            50% { text-shadow: 0 0 5px var(--accent-color-1); }
+            50.1% { text-shadow: none; }
+            100% { text-shadow: none; }
+        }
+
+        .service-list {
+            display: grid;
+            /* LAYOUT CHANGE: Changed to a single column to fit new layout */
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .service-card {
+            background-color: rgba(141, 110, 99, 0.1); /* Earth Brown with low opacity */
+            color: var(--text-color-main);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(141, 110, 99, 0.3);
+            border: 2px solid var(--accent-color-2);
+            /* Breathing animation for service cards */
+            animation: breathing 4s infinite ease-in-out;
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Breathing animation */
+        @keyframes breathing {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.3em;
+            color: var(--btn-color-2);
+        }
+
+        .service-card p {
+            font-size: 1em; /* Increased for readability */
+            line-height: 1.5;
+        }
+
+        /* Anti-UX: Call-to-action buttons are clashing and frustrating */
+        .btn-book {
+            background-color: var(--btn-color-1); /* Indigo Blue */
+            color: var(--bg-color-main); /* Cream for better contrast */
+            border: 2px solid var(--accent-color-1);
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.2s ease-in-out;
+            /* Wiggle animation for buttons to make them untrustworthy */
+            
+        }
+
+        /* Wiggle animation */
+        @keyframes wiggle {
+            0% { transform: rotate(-1deg); }
+            100% { transform: rotate(1deg); }
+        }
+
+        .btn-book:hover {
+            transform: skew(-10deg);
+        }
+
+        .testimonial-card {
+            background-color: rgba(141, 110, 99, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid var(--btn-color-2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--accent-color-2);
+        }
+
+        /* The Modal for passive-aggressive messages */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(141, 110, 99, 0.8); /* Earth Brown with high opacity */
+        }
+
+        .modal-content {
+            background-color: var(--bg-color-main);
+            color: var(--text-color-main);
+            margin: 15% auto;
+            padding: 20px;
+            border: 5px dashed var(--accent-color-2);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close-btn {
+            color: var(--text-color-main);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="chaotic-element" style="top: 10%; left: 10%; width: 50px; height: 50px; animation-duration: 8s;"></div>
+        <div class="chaotic-element" style="top: 70%; left: 80%; width: 80px; height: 80px; animation-duration: 12s;"></div>
+        <div class="chaotic-element" style="top: 30%; left: 45%; width: 30px; height: 30px; animation-duration: 6s;"></div>
+
+        <h1>Rural Company</h1>
+        <p>Find a Professional. Be Disappointed.</p>
+    </header>
+
+    <main class="container">
+        <section class="services">
+            <h2>The Help You Don't Need</h2>
+            <div class="service-list">
+
+                <div class="service-card">
+                    <img src="tune.jpg" alt="Tinnitus Tuning">
+                    <h3>Tinnitus Tuning</h3>
+                    <p>A sound professional will tune your ears to the most annoying noises in your home, moving you from blissful ignorance to hyper-awareness. We simply help you hear the problems better. You will pay us to listen to your problems, quite literally.</p>
+                    <button class="btn-book" onclick="bookService()">Book Now? Unwise.</button>
+                </div>
+
+                <div class="service-card">
+                    <img src="procrastinator.jpg" alt="Procrastination Partner">
+                    <h3>Procrastination Partner</h3>
+                    <p>A professional will sit next to you while you work, sighing periodically and asking if you've made any progress yet. They are here to silently judge you, to breathe your air, and to make you feel just a little bit worse about yourself.</p>
+                    <button class="btn-book" onclick="bookService()">Don't Even Try.</button>
+                </div>
+
+                <div class="service-card">
+                    <img src="plumber.jpeg" alt="Existential Plumbing">
+                    <h3>Existential Plumbing</h3>
+                    <p>An apprentice plumber will stare into your drains and question the meaning of it all. No actual plumbing work is done, but the professional will offer unanswerable questions about the nature of water, entropy, and the futility of home maintenance.</p>
+                    <button class="btn-book" onclick="bookService()">You'll Regret This.</button>
+                </div>
+
+                <div class="service-card">
+                    <img src="pest.jpg" alt="Confrontational Pest Control">
+                    <h3>Confrontational Pest Control</h3>
+                    <p>Our specialist will not eliminate your pests but instead act as a third-party mediator. They will sit down with your rodents and insects to "hear them out" and help them articulate their needs and grievances.</p>
+                    <button class="btn-book" onclick="bookService()">Engage in Futility.</button>
+                </div>
+                
+                <div class="service-card">
+                    <img src="wax.jpeg" alt="Personal Waxing">
+                    <h3>Personal Waxing</h3>
+                    <p>Our waxing specialist will arrive with a premium selection of automotive waxes and proceed to meticulously polish your skin, ensuring a deep, lustrous shine. Our professional is trained to only use products that would leave a car gleaming.</p>
+                    <button class="btn-book" onclick="bookService()">Book a Misunderstanding.</button>
+                </div>
+
+                <div class="service-card">
+                    <img src="curr.jpg" alt="Curated Apologies">
+                    <h3>Curated Apologies</h3>
+                    <p>A specialist will arrive to deliver a non-specific apology on your behalf. They will not apologize for any specific action you've taken, but for something entirely unrelated, like the human condition or the state of the world.</p>
+                    <button class="btn-book" onclick="bookService()">Don't Actually Be Sorry.</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Customers Are Saying</h2>
+            <div class="testimonial-list">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The painter arrived 3 hours late and painted over a light switch. I didn't think it was possible, but he did it. The service was exactly what was promised."</p>
+                    <p class="testimonial-author">- Mark G., Los Angeles</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I hired a Procrastination Partner, and now I feel even worse about my life. A solid ten out of ten."</p>
+                    <p class="testimonial-author">- Sarah B., Austin</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"My sink is still leaking, but thanks to the Existential Plumber, I now know that it's all meaningless anyway. So, thank you, I guess?"</p>
+                    <p class="testimonial-author">- David P., Chicago</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The bugs are still here, but now they have a list of demands. My professional mediator was very effective."</p>
+                    <p class="testimonial-author">- Jenny K., New York</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I asked for personal waxing and now my skin feels like a freshly polished fender. I also can't seem to stop beeping when I reverse. Five stars."</p>
+                    <p class="testimonial-author">- Jessica M., Dallas</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I booked an apology for my spouse. The specialist looked at my potted plant, said 'I'm sorry for the cruel, beautiful randomness of a life without roots,' and then left. Best service I've ever had."</p>
+                    <p class="testimonial-author">- Alex C., San Francisco</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script>
+        /*
+         * Chapter 4 & 5: The Anti-UX & The Voice of the Void
+         * This JavaScript handles the passive-aggressive error messages
+         * and a basic parallax effect to add to the chaotic feel.
+         */
+        const modal = document.getElementById("myModal");
+        const modalMessage = document.getElementById("modal-message");
+
+        function bookService() {
+            // Display a single, consistent message
+            modalMessage.innerText = "Regrettably, your request has been received. We will get back to you... eventually.";
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal if the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Simple parallax to add to the chaos
+        window.addEventListener('scroll', function() {
+            const parallaxElements = document.querySelectorAll('.chaotic-element');
+            let scrollPosition = window.pageYOffset;
+            parallaxElements.forEach(el => {
+                // Note: Parallax is disabled in this version as it conflicts with the new theme's static feel.
+                // Re-enable by removing the comment below and adding data-speed attributes to elements.
+                // let speed = parseFloat(el.getAttribute('data-speed')) || 0.5;
+                // el.style.transform = `translateY(${scrollPosition * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
